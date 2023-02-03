@@ -1,2 +1,0 @@
-C:\Users\sunte\source\repos\reactproject1\reactproject1\obj\Debug\reactproject1.esproj.SuggestedBindingRedirects.cache
-C:\Users\sunte\source\repos\reactproject1\reactproject1\obj\Debug\reactproject1.esproj.CoreCompileInputs.cache
