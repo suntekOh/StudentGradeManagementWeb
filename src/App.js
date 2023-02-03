@@ -2,139 +2,37 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/css/bootstrap.css";
 import "./css/site.css"
-import { Tabs, Tab, Row, Button, Col, Container, Stack } from "react-bootstrap";
-
+import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
 
 function App() {
     return (
         <div class="container-fluid px-0">
             <div class="d-flex flex-column vh-100">
-                <div class="fixed-top d-flex custom-bg-gray flex-wrap custom-header-bg">
-                    <div class="p-3">Flex item</div>
-                    <div class="p-3">Flex item</div>
-                    <div class="p-3">Flex item</div>
+                <div class="d-flex justify-content-between fixed-top py-1 custom-header-bg">
+                    <Button href="/" variant="link" className="p-2">Home</Button>
+                    <Nav
+                        activeKey="/home"
+                        onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+                        className="justify-content-end"
+                    >
+                        <Nav.Item>
+                            <Nav.Link href="/home" className="link-light">Already a user?</Nav.Link>
+                        </Nav.Item>
+                    </Nav>
                 </div>
-                <div class="d-flex flex-grow-1 flex-wrap content-padding-top">
-                    <div class="custom-bg-gray vh-100 overflow-auto sidebar-fixed-width">
+                <div class="flex-grow-1 d-flex flex-wrap content-padding-top">
+                    <Nav defaultActiveKey="/home" className="flex-column">
+                        <Nav.Link href="/home">Active</Nav.Link>
+                        <Nav.Link eventKey="link-1">Link</Nav.Link>
+                        <Nav.Link eventKey="link-2">Link</Nav.Link>
+                        <Nav.Link eventKey="disabled" disabled>
+                            Disabled
+                        </Nav.Link>
+                    </Nav>
+                    <div class="d-flex flex-wrap px-2 flex-grow-1 overflow-auto custom-bg-gray vh-100">
                         <div> Flex items1</div>
                         <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items1</div>
-                    </div>
-                    <div class="p-2 flex-grow-1 overflow-auto custom-bg-gray flex-wrap vh-100">
-                        <div> Flex items1</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items1</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-
-                        <div> Flex items1</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items</div>
-                        <div> Flex items1</div>
                     </div>
                 </div>
 
