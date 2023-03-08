@@ -1,11 +1,19 @@
 .fixed-label-width {
-    flex: 0 0 100px;
+    flex: 0 0 150px;
 }
 
 @media screen and (min-width: 576px) {
     .form-control.custom-input-width {
         flex: 0 0 300px;
     }
+
+    .custom-button-width {
+        flex: 0 0 450px;
+    }
+
+    .custom-card-width {
+        flex: 0 0 500px;
+    }
 }
 
 /*On screens that are 600px or less, set the background color to olive*/
@@ -14,20 +22,14 @@
         flex: 1 1 100px;
         min-width: 100px;
     }
-}
 
-
-@media screen and (min-width: 576px) {
     .custom-button-width {
-        flex: 0 0 400px;
+        flex: 1 1 100px;
+        min-width: 100px;
     }
-}
 
-/*On screens that are 600px or less, set the background color to olive*/
-@media screen and (max-width: 576px) {
     .custom-button-width {
         flex: 1 1 100px;
         min-width: 100px;
     }
 }
-

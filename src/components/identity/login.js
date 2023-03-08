@@ -1,7 +1,11 @@
-import "../css/login.css"
+import "../../css/login.css"
 import { useState } from 'react';
-import { AuthProcessType } from '../Common/data.js'
-import { UsersInfo, RoutingType } from "../Common/data.js";
+import { AuthProcessType } from '../../common/data.js'
+import { UsersInfo, RoutingType } from "../../common/data.js";
+import {
+    useNavigate,
+    Form,
+} from "react-router-dom";
 
 export default function Login({ handleAuthTypeChange, handleUserAuthenticated, handleRoutingType }) {
     const [credentials, setCredentials] = useState({
@@ -28,45 +32,31 @@ export default function Login({ handleAuthTypeChange, handleUserAuthenticated, h
         const signedUser = usersInfo.filter(p => p.userId == credentials.userId && p.password == credentials.Password).shift()
 
         if (signedUser) {
-            handleUserAuthenticated(signedUser);
-            handleRoutingType(RoutingType.UserMain);
+            //handleUserAuthenticated(signedUser);
+            //handleRoutingType(RoutingType.UserMain);
         } else {
             alert('wrong credentials has been entered')
         }
     }
 
-    //function getUsersInfo() {
-    //    return fetch('usersInfo.json')
-    //        .then(response => {
-    //            if (!response.ok) {
-    //                throw new Error("HTTP error " + response.status);
-    //            }
-    //            return response.json();
-    //        })
-    //        .catch((e) => {
-    //            throw new Error(e);
-    //        });
-    //}
-
     return (
-        <>
-            <div className="card">
-                <div className="card-header">
-                    Login
+        <div className="d-flex min-vh-100 justify-content-center align-items-center">
+            <div className="card custom-card-width">
+                <div className="card-header">Login
                 </div>
-                <div className="card-body">
-                    <h5 className="card-title">Login</h5>
+                <div className="card-body d-flex flex-column">
+                    <h5 className="card-title"></h5>
                     <p className="card-text">Please enter your credentials.</p>
-                    <div className="input-group d-flex mb-2">
-                        <span className="input-group-text fixed-label-width">Id</span>
+                    <div className="input-group d-flex justify-content-center mb-2">
+                        <span className="input-group-text fixed-label-width text-right">Id</span>
                         <input
                             className="form-control custom-input-width"
                             value={credentials.userId}
                             onChange={handleIdChange}
                         />
                     </div>
-                    <div className="d-flex input-group mb-2">
-                        <span className="input-group-text fixed-label-width">Password</span>
+                    <div className="d-flex input-group justify-content-center mb-2">
+                        <span className="input-group-text fixed-label-width text-right">Password</span>
                         <input
                             type="password"
                             className="form-control custom-input-width"
@@ -74,17 +64,21 @@ export default function Login({ handleAuthTypeChange, handleUserAuthenticated, h
                             onChange={handlePasswordChange}
                         />
                     </div>
-                    <div className="d-flex">
+                    <div className="d-flex justify-content-center ">
                         <button className="btn btn-primary custom-button-width" type="button" onClick={handleSignin}>Sign in</button>
                     </div>
                     <div className="d-flex">
                         <div className="d-flex flex-wrap justify-content-between custom-button-width">
-                            <button type="button" className="btn btn-link" onClick={() => handleAuthTypeChange(AuthProcessType.ForgotPassword)}>forgot password</button>
-                            <button type="button" className="btn btn-link" onClick={() => handleAuthTypeChange(AuthProcessType.SignUp)}>sign up</button>
+                            <Form action="/identity/forgotpassword">
+                                <button type="submit" className="btn btn-link">forgot password</button>
+                            </Form>
+                            <Form action="/identity/prepare-signup">
+                                <button type="submit" className="btn btn-link">sign up</button>
+                            </Form>
                         </div>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
